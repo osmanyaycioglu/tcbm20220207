@@ -15,6 +15,9 @@ public class SpringProjectApplication implements ApplicationRunner {
 	@Autowired
 	private SayHello sayHello;
 
+	@Autowired
+	private Hello hello;
+
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(SpringProjectApplication.class, args);
 //		SayHello sayHello = context.getBean(SayHello.class);
@@ -28,6 +31,7 @@ public class SpringProjectApplication implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		hello.hello("osman");
 		sayHello.sayIt("ayşe");
 	}
 }
