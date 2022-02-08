@@ -10,6 +10,24 @@ public class GreetingProperties {
     private Integer xyz;
     private String startWith;
     private String caniminIstediginiYazarim = "test me";
+    private EGreetingType greetingType;
+    private String customGreeting = "default";
+
+    public EGreetingType getGreetingType() {
+        return greetingType;
+    }
+
+    public void setGreetingType(EGreetingType greetingType) {
+        this.greetingType = greetingType;
+    }
+
+    public String getCustomGreeting() {
+        return customGreeting;
+    }
+
+    public void setCustomGreeting(String customGreeting) {
+        this.customGreeting = customGreeting;
+    }
 
     public String getAbc() {
         return abc;
