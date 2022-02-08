@@ -1,6 +1,7 @@
 package com.training.tcmb.spring.printer;
 
 public class Customer {
+    private Long customerId;
     private String name;
     private String surname;
     private EGender gender;
@@ -30,5 +31,23 @@ public class Customer {
     public Customer setGender(EGender gender) {
         this.gender = gender;
         return this;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public Customer setCustomerId(Long customerId) {
+        this.customerId = customerId;
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", gender=" + gender +
+                '}';
     }
 }
