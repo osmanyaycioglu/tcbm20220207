@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class GreetingRun implements CommandLineRunner {
 
     @Autowired
-    @Qualifier("createGreet2")
+    @Qualifier("createGreet")
     // @GreetingChooser(type = EGreetingType.ENGLISH)
     private IGreet greet;
 
