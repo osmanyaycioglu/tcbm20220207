@@ -2,12 +2,17 @@ package com.training.tcmb.spring.di;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
+
+import javax.validation.constraints.NotEmpty;
 
 @Component
 @ConfigurationProperties(prefix = "greeting")
+@Validated
 public class GreetingProperties {
     private String abc;
     private Integer xyz;
+    @NotEmpty
     private String startWith;
     private String caniminIstediginiYazarim = "test me";
     private EGreetingType greetingType;
