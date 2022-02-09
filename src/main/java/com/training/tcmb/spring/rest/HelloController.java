@@ -1,11 +1,119 @@
 package com.training.tcmb.spring.rest;
 
+import com.training.tcmb.spring.printer.Customer;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/hello")
 public class HelloController {
+
+    @GetMapping("/hello8/{operation}")
+    public ResponseEntity<?> hello8(@PathVariable("operation")  String op) {
+        switch (op){
+            case "add":
+                return ResponseEntity.status(201)
+                                     .header("X-test",
+                                             "test1")
+                                     .header("Content-Type",
+                                             "app/xyz")
+                                     .body("Hello7 Name : ");
+            case "remove":
+                return ResponseEntity.status(202)
+                                     .header("X-test",
+                                             "test1")
+                                     .header("Content-Type",
+                                             "app/xyz")
+                                     .body(new Customer().setName("test"));
+            case "xyz":
+                return ResponseEntity.status(203)
+                                     .header("X-test",
+                                             "test1")
+                                     .header("Content-Type",
+                                             "app/xyz")
+                                     .body(new Customer().setName("test"));
+            default:
+                return ResponseEntity.status(400)
+                                     .header("X-test",
+                                             "test1")
+                                     .header("Content-Type",
+                                             "app/xyz")
+                                     .body("Error");
+
+
+        }
+
+    }
+
+    @GetMapping("/hello7")
+    public ResponseEntity<?> hello7(HttpServletRequest httpServletRequest) {
+        String op = httpServletRequest.getParameter("op");
+        switch (op){
+            case "add":
+                return ResponseEntity.status(201)
+                                     .header("X-test",
+                                             "test1")
+                                     .header("Content-Type",
+                                             "app/xyz")
+                                     .body("Hello7 Name : ");
+            case "remove":
+                return ResponseEntity.status(202)
+                                     .header("X-test",
+                                             "test1")
+                                     .header("Content-Type",
+                                             "app/xyz")
+                                     .body(new Customer().setName("test"));
+            case "xyz":
+                return ResponseEntity.status(203)
+                                     .header("X-test",
+                                             "test1")
+                                     .header("Content-Type",
+                                             "app/xyz")
+                                     .body(new Customer().setName("test"));
+            default:
+                return ResponseEntity.status(400)
+                                     .header("X-test",
+                                             "test1")
+                                     .header("Content-Type",
+                                             "app/xyz")
+                                     .body("Error");
+
+
+        }
+    }
+
+    @GetMapping("/hello6")
+    public ResponseEntity<String> hello5(HttpServletRequest httpServletRequest) {
+        String isim = httpServletRequest.getParameter("isim");
+        return ResponseEntity.status(201)
+                             .header("X-test",
+                                     "test1")
+                             .header("Content-Type",
+                                     "app/xyz")
+                             .body("Hello5 Name : " + isim);
+    }
+
+    @GetMapping("/hello5/{xyz}")
+    public ResponseEntity<String> hello5(@PathVariable("xyz") String name) {
+        return ResponseEntity.status(201)
+                             .header("X-test",
+                                     "test1")
+                             .header("Content-Type",
+                                     "app/xyz")
+                             .body("Hello5 Name : " + name);
+    }
+
+
+    @GetMapping("/hello4/{yas}")
+    public String hello4(@RequestParam("isim") String name,
+                         @RequestHeader("soy") String surname,
+                         @PathVariable("yas") Integer age) {
+        return "Hello4 Name : " + name + " Surname : " + surname + " Age : " + age;
+    }
+
 
     @GetMapping("/hello2")
     public String hello2(@RequestParam("isim") String name,
@@ -16,7 +124,7 @@ public class HelloController {
 
     @GetMapping("/hello3/{xyz}")
     public String hello2(@PathVariable("xyz") String name) {
-        return "Hello3 Name : " + name ;
+        return "Hello3 Name : " + name;
     }
 
 
