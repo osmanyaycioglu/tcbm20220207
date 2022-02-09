@@ -1,8 +1,6 @@
 package com.training.tcmb.spring.printer;
 
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
+import com.training.tcmb.spring.customer.models.Customer;
 
 public class ExtendedPrinter implements ICardPrinter {
 

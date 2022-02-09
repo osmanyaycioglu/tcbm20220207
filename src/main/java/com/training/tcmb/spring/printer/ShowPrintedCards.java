@@ -1,5 +1,6 @@
 package com.training.tcmb.spring.printer;
 
+import com.training.tcmb.spring.customer.models.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;

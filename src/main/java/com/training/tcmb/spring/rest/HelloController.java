@@ -1,8 +1,7 @@
 package com.training.tcmb.spring.rest;
 
-import com.training.tcmb.spring.printer.Customer;
+import com.training.tcmb.spring.customer.models.Customer;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;

@@ -1,5 +1,7 @@
 package com.training.tcmb.spring.printer;
 
+import com.training.tcmb.spring.customer.models.Customer;
+
 public class StandartPrinter implements ICardPrinter {
 
     private String cardMessage;

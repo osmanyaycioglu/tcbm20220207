@@ -1,5 +1,6 @@
-package com.training.tcmb.spring.printer;
+package com.training.tcmb.spring.customer.models;
 
+import com.training.tcmb.spring.printer.EGender;
 import com.training.tcmb.spring.validation.StartWith;
 
 import javax.validation.constraints.*;
@@ -7,27 +8,12 @@ import java.time.LocalDate;
 
 public class Customer {
     private Long customerId;
-    @NotEmpty
-    @Size(min = 2, max = 15, message = "name {min} ile {max} arasında olmalı")
-    @StartWith(value = "n:")
     private String name;
-    @NotEmpty
-    @Size(min = 3, max = 18, message = "surname {min} ile {max} arasında olmalı")
-    @StartWith("s:")
     private String surname;
-    @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", message = "password de min bir sayı ve min bir büyük harf olmalı")
     private String password;
-    @NotNull
     private EGender gender;
-    @Max(300)
-    @Min(50)
     private Integer height;
-    @NotNull
-    @Positive
-    @Max(300)
-    @Min(10)
     private Integer weight;
-    @Past
     private LocalDate birthday;
 
     public String getPassword() {
