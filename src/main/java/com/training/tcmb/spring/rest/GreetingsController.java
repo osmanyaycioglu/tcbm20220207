@@ -1,9 +1,11 @@
 package com.training.tcmb.spring.rest;
 
 import com.training.tcmb.spring.di.IGreet;
+import com.training.tcmb.spring.rest.error.RestError;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -38,6 +40,14 @@ public class GreetingsController {
     public String greetPerson3(@PathVariable("xyz") String name,
                                @PathVariable("abc") String surname) {
         return greet.greet(name + " " + surname);
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public RestError handleException(IllegalArgumentException exp) {
+        return RestError.create()
+                        .setMessage("Erroor")
+                        .setErrorCause(10002L);
     }
 
 }
