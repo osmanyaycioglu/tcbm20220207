@@ -3,10 +3,16 @@ package com.training.tcmb.spring.customer.models;
 import com.training.tcmb.spring.printer.EGender;
 import com.training.tcmb.spring.validation.StartWith;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
 
+@Entity
 public class Customer {
+    @Id
+    @GeneratedValue
     private Long customerId;
     private String name;
     private String surname;

@@ -1,6 +1,7 @@
 package com.training.tcmb.spring.customer.rest;
 
 import com.training.tcmb.spring.customer.data.CustomerStorage;
+import com.training.tcmb.spring.customer.data.db.ICustomerDao;
 import com.training.tcmb.spring.customer.mappings.CustomerMapping;
 import com.training.tcmb.spring.customer.models.Customer;
 import com.training.tcmb.spring.customer.rest.models.CustomerRest;

@@ -2,6 +2,7 @@ package com.training.tcmb.spring.customer.data;
 
 import com.training.tcmb.spring.customer.models.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 public class CustomerDataManagement {
 
     @Autowired
+    @Qualifier("customerDB")
     private ICustomerData customerData;
 
     public Long write(Customer customer){
