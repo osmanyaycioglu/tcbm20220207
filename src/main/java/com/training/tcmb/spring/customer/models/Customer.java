@@ -2,6 +2,8 @@ package com.training.tcmb.spring.customer.models;
 
 import com.training.tcmb.spring.printer.EGender;
 import com.training.tcmb.spring.validation.StartWith;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -26,6 +28,9 @@ public class Customer {
     private Integer height;
     private Integer weight;
     private LocalDate birthday;
+    @Fetch(FetchMode.SELECT)
+    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    private Address address;
 
     public String getPassword() {
         return password;
@@ -93,6 +98,14 @@ public class Customer {
     public Customer setCustomerId(Long customerId) {
         this.customerId = customerId;
         return this;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override

@@ -16,6 +16,7 @@ public class CustomerMapping {
         customerOut.setPassword(customerIn.getPassword());
         customerOut.setWeight(customerIn.getWeight());
         customerOut.setGender(customerIn.getGender());
+        customerOut.setAddress(customerIn.getAddress());
         return customerOut;
     }
 
@@ -28,6 +29,7 @@ public class CustomerMapping {
         customerOut.setPassword(customerIn.getPassword());
         customerOut.setWeight(customerIn.getWeight());
         customerOut.setGender(customerIn.getGender());
+        customerOut.setAddress(customerIn.getAddress());
         return customerOut;
     }
 

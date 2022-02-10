@@ -1,5 +1,6 @@
 package com.training.tcmb.spring.customer.rest.models;
 
+import com.training.tcmb.spring.customer.models.Address;
 import com.training.tcmb.spring.printer.EGender;
 import com.training.tcmb.spring.validation.StartWith;
 
@@ -29,6 +30,17 @@ public class CustomerRest {
     private Integer weight;
     @Past
     private LocalDate birthday;
+
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
 
     public String getPassword() {
         return password;
