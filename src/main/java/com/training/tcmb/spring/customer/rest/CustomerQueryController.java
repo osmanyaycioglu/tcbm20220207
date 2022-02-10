@@ -1,5 +1,6 @@
 package com.training.tcmb.spring.customer.rest;
 
+import com.training.tcmb.spring.customer.data.CustomerStorage;
 import com.training.tcmb.spring.customer.mappings.CustomerMapping;
 import com.training.tcmb.spring.customer.models.Customer;
 import com.training.tcmb.spring.customer.rest.models.CustomerRest;
@@ -18,13 +19,16 @@ public class CustomerQueryController {
     @Autowired
     private CustomerQueryService customerQueryService;
 
+    @Autowired
+    private CustomerStorage cs;
+
     @GetMapping("/get/all")
     public List<CustomerRest> getAll() {
         return CustomerMapping.toCustomersRest( customerQueryService.getAll());
     }
 
     @GetMapping("/get/single")
-    public CustomerRest get(@RequestBody Long customerId) {
+    public CustomerRest get(@RequestParam("cid") Long customerId) {
         return CustomerMapping.toCustomerRest(customerQueryService.getOne(customerId));
     }
 

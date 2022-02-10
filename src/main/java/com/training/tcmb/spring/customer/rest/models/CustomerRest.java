@@ -7,14 +7,13 @@ import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 public class CustomerRest {
-    private Long customerId;
     @NotEmpty
     @Size(min = 2, max = 15, message = "name {min} ile {max} arasında olmalı")
-    @StartWith(value = "n:")
+    //@StartWith(value = "n:")
     private String name;
     @NotEmpty
     @Size(min = 3, max = 18, message = "surname {min} ile {max} arasında olmalı")
-    @StartWith("s:")
+    //@StartWith("s:")
     private String surname;
     @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", message = "password de min bir sayı ve min bir büyük harf olmalı")
     private String password;
@@ -87,15 +86,6 @@ public class CustomerRest {
 
     public CustomerRest setGender(EGender gender) {
         this.gender = gender;
-        return this;
-    }
-
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public CustomerRest setCustomerId(Long customerId) {
-        this.customerId = customerId;
         return this;
     }
 

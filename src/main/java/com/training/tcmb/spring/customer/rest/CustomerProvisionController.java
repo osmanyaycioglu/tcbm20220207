@@ -1,5 +1,6 @@
 package com.training.tcmb.spring.customer.rest;
 
+import com.training.tcmb.spring.customer.data.CustomerStorage;
 import com.training.tcmb.spring.customer.mappings.CustomerMapping;
 import com.training.tcmb.spring.customer.models.Customer;
 import com.training.tcmb.spring.customer.rest.models.CustomerRest;
@@ -11,6 +12,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/customer/provision")
@@ -25,9 +28,9 @@ public class CustomerProvisionController implements ICustomerProvisionController
 //        if (customer.getName() == null) {
 //            throw new IllegalArgumentException("name alanı boş olamaz");
 //        }
-        customerService.add(CustomerMapping.toCustomer(customer));
+        Long id = customerService.add(CustomerMapping.toCustomer(customer));
         ProvisionResponse provisionResponse = new ProvisionResponse();
-        provisionResponse.setMessage("Müşteri datası başarılı şekilde eklendi : " + customer);
+        provisionResponse.setMessage("Müşteri id : " + id + " datası başarılı şekilde eklendi : " + customer);
         provisionResponse.setReturnCode(100);
         return provisionResponse;
     }
