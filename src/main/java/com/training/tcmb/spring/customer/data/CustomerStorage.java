@@ -38,5 +38,10 @@ public class CustomerStorage implements ICustomerData {
         return customerMap.get(customerId);
     }
 
+    @Override
+    public List<Customer> getByName(String name) {
+        return null;
+    }
+
 
 }

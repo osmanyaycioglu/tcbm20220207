@@ -38,5 +38,10 @@ public class CustomerDB implements ICustomerData {
         return customerDao.findById(customerId).orElse(null);
     }
 
+    @Override
+    public List<Customer> getByName(String name) {
+        return null;
+    }
+
 
 }

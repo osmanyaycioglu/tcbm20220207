@@ -3,20 +3,25 @@ package com.training.tcmb.spring.customer.models;
 import com.training.tcmb.spring.printer.EGender;
 import com.training.tcmb.spring.validation.StartWith;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
+@NamedQueries({@NamedQuery(name = "Customer.findAllSearchName",
+        query = "select c from Customer c where c.name=?1")})
+@Table(name = "musteri")
 public class Customer {
     @Id
     @GeneratedValue
     private Long customerId;
+    @Column(name="isim",length = 20)
     private String name;
+    @Size(min = 2,max = 25)
     private String surname;
     private String password;
+    @Enumerated(EnumType.STRING)
     private EGender gender;
     private Integer height;
     private Integer weight;

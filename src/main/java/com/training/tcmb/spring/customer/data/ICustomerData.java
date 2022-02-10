@@ -13,4 +13,6 @@ public interface ICustomerData {
     List<Customer> getAll();
 
     Customer getOne(Long customerId);
+
+    List<Customer> getByName(String name);
 }
