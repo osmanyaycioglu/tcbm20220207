@@ -3,6 +3,7 @@ package com.training.tcmb.spring.customer.data;
 import com.training.tcmb.spring.customer.data.db.ICustomerDao;
 import com.training.tcmb.spring.customer.models.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,7 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Service
+//@Service
+//@Profile("database")
 public class CustomerDB implements ICustomerData {
 
     @Autowired

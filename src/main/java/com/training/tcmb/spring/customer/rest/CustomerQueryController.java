@@ -19,9 +19,6 @@ public class CustomerQueryController {
     @Autowired
     private CustomerQueryService customerQueryService;
 
-    @Autowired
-    private CustomerStorage cs;
-
     @GetMapping("/get/all")
     public List<CustomerRest> getAll() {
         return CustomerMapping.toCustomersRest( customerQueryService.getAll());

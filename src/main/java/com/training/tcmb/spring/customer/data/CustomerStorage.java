@@ -1,13 +1,15 @@
 package com.training.tcmb.spring.customer.data;
 
 import com.training.tcmb.spring.customer.models.Customer;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Service
+//@Service
+//@Profile("memory")
 public class CustomerStorage implements ICustomerData {
     private Map<Long, Customer> customerMap = new ConcurrentHashMap<>();
     private long cid = 0;

@@ -1,6 +1,8 @@
 package com.training.tcmb.spring.rest;
 
+import com.training.tcmb.other.Echo;
 import com.training.tcmb.spring.customer.models.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,6 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/hello")
 public class HelloController {
+
+    @Autowired
+    private Echo echo;
+
+    @GetMapping("/hello/echo")
+    public String echo(@RequestParam("str")  String str) {
+        return echo.echo(str);
+    }
+
 
     @GetMapping("/hello8/{operation}")
     public ResponseEntity<?> hello8(@PathVariable("operation")  String op) {

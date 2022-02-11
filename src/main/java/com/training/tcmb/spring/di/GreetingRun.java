@@ -13,8 +13,12 @@ public class GreetingRun implements CommandLineRunner {
     // @GreetingChooser(type = EGreetingType.ENGLISH)
     private IGreet greet;
 
+    @Autowired
+    private GreetingProperties gp;
+
     @Override
     public void run(String... args) throws Exception {
+        System.out.println(gp);
         System.out.println(greet.greet("ali"));
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 public class CustomerDataManagement {
 
     @Autowired
-    @Qualifier("customerDB")
+    // @Qualifier("customerDB")
     private ICustomerData customerData;
 
     public Long write(Customer customer){

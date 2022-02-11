@@ -65,4 +65,16 @@ public class GreetingProperties {
     public void setCaniminIstediginiYazarim(String caniminIstediginiYazarim) {
         this.caniminIstediginiYazarim = caniminIstediginiYazarim;
     }
+
+    @Override
+    public String toString() {
+        return "GreetingProperties{" +
+                "abc='" + abc + '\'' +
+                ", xyz=" + xyz +
+                ", startWith='" + startWith + '\'' +
+                ", caniminIstediginiYazarim='" + caniminIstediginiYazarim + '\'' +
+                ", greetingType=" + greetingType +
+                ", customGreeting='" + customGreeting + '\'' +
+                '}';
+    }
 }
