@@ -1,11 +1,14 @@
 package com.training.tcmb.spring.customer.rest.models;
 
 import com.training.tcmb.spring.customer.models.Address;
+import com.training.tcmb.spring.customer.models.Phone;
 import com.training.tcmb.spring.printer.EGender;
 import com.training.tcmb.spring.validation.StartWith;
 
 import javax.validation.constraints.*;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Set;
 
 public class CustomerRest {
     @NotEmpty
@@ -32,6 +35,16 @@ public class CustomerRest {
     private LocalDate birthday;
 
     private Address address;
+
+    private Set<Phone> phones;
+
+    public Set<Phone> getPhones() {
+        return phones;
+    }
+
+    public void setPhones(Set<Phone> phones) {
+        this.phones = phones;
+    }
 
     public Address getAddress() {
         return address;

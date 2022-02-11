@@ -9,6 +9,8 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @NamedQueries({@NamedQuery(name = "Customer.findAllSearchName",
@@ -28,9 +30,31 @@ public class Customer {
     private Integer height;
     private Integer weight;
     private LocalDate birthday;
-    @Fetch(FetchMode.SELECT)
-    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+
+    @Version
+    private Long writeIndex;
+    // @Fetch(FetchMode.JOIN)
+    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "customer")
     private Address address;
+
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "customer")
+    private Set<Phone> phones;
+
+    public Long getWriteIndex() {
+        return writeIndex;
+    }
+
+    public void setWriteIndex(Long writeIndex) {
+        this.writeIndex = writeIndex;
+    }
+
+    public Set<Phone> getPhones() {
+        return phones;
+    }
+
+    public void setPhones(Set<Phone> phones) {
+        this.phones = phones;
+    }
 
     public String getPassword() {
         return password;

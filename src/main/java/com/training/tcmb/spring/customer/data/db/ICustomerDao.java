@@ -1,6 +1,7 @@
 package com.training.tcmb.spring.customer.data.db;
 
 import com.training.tcmb.spring.customer.models.Customer;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

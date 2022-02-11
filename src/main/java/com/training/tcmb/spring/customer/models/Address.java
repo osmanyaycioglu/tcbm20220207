@@ -1,9 +1,9 @@
 package com.training.tcmb.spring.customer.models;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Address {
@@ -13,6 +13,19 @@ public class Address {
     private String city;
     private String street;
     private String addressName;
+    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @NotNull
+    @JoinColumn(nullable = false,name = "customer_id")
+    @JsonIgnore
+    private Customer customer;
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     public Long getAddId() {
         return addId;
