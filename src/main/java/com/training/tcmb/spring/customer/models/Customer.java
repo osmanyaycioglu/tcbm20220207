@@ -16,9 +16,10 @@ import java.util.Set;
 @NamedQueries({@NamedQuery(name = "Customer.findAllSearchName",
         query = "select c from Customer c where c.name=?1")})
 @Table(name = "musteri")
+@TableGenerator(name = "CusTG", table = "gen_id", pkColumnName = "id_name", pkColumnValue = "cust", valueColumnName = "id_value", allocationSize = 100, initialValue = 1)
 public class Customer {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE,generator = "CusTG")
     private Long customerId;
     @Column(name="isim",length = 20)
     private String name;
